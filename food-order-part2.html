@@ -1,0 +1,113 @@
+<script>
+
+//ce rol joaca functia parseInt() ?: 
+//        este o functie ce îți permite să extragi primul număr întreg dintr-un șir de caractere
+//        dacă stringul interpretat nu conține niciun număr, funcția returnează NaN (not a number)
+
+//ce rol joaca ${identifier} ?:
+//        are rolul pentru a denumi variabile (cuvinte cheie
+//        functii si etichete) in cazul meu are rolul de a afisa 
+//        valorile variabilelor care am declarat mai jos 
+//        
+
+
+
+food_1_name    = "Pizza"
+food_1_price   = 75.00
+food_2_name    = "Salad"
+food_2_price   = 25.00
+food_3_name    = "Cappucino"
+food_3_price   = 20.00
+food_4_name    = "Pie"
+food_4_price   = 35.00
+foodPriceUnits = "MDL"
+
+    alert( 
+            `
+            ------------  MENU  -----------                                                                                                                                                                                                       
+            1. "${food_1_name}" - ${food_1_price.toFixed(2)}  "${foodPriceUnits}" 
+            2. "${food_2_name}" - ${food_2_price.toFixed(2)}  "${foodPriceUnits}"  
+            3. "${food_3_name}" - ${food_3_price.toFixed(2)}  "${foodPriceUnits}"    
+            4. "${food_4_name}" - ${food_4_price.toFixed(2)}  "${foodPriceUnits}"                                                                          
+            ------------  MENU  ----------- 
+            `               
+        )
+
+    //QUANTITY
+    food_1_quantity = parseInt( prompt(`How many "${food_1_name}" do you want?`) )
+    food_2_quantity = parseInt( prompt(`How many "${food_2_name}" do you want?`) )
+    food_3_quantity = parseInt( prompt(`How many "${food_3_name}" do you want?`) )
+    food_4_quantity = parseInt( prompt(`How many "${food_4_name}" do you want?`) )
+
+    //CALC THE ORDER
+    cost_1 = food_1_price * food_1_quantity
+    cost_2 = food_2_price * food_2_quantity
+    cost_3 = food_3_price * food_3_quantity
+    cost_4 = food_4_price * food_4_quantity
+
+    //TOTAL PRICE
+    totalPrice = cost_1 + cost_2 + cost_3 + cost_4 
+    // FREE DELIVERY 
+    free_delivery = totalPrice > 200
+
+    //ORDER BOX   VARIANTA I
+    // alert(
+    //   `
+    //            --------------  BILL  -------------------                                                                                  
+    //            1. "${food_1_name}" x ${food_1_price} = ${cost_1.toFixed(2)}  "${foodPriceUnits}"   
+    //            2. "${food_2_name}" x ${food_2_price} = ${cost_2.toFixed(2)}  "${foodPriceUnits}"  
+    //            3. "${food_3_name}" x ${food_3_price} = ${cost_3.toFixed(2)}  "${foodPriceUnits}"  
+    //            4. "${food_4_name}" x ${food_4_price} = ${cost_4.toFixed(2)}  "${foodPriceUnits}"                                                                                    
+    //            ----------------------------------------
+    //             BILL: ${totalPrice.toFixed(2)} ${foodPriceUnits}                                                      -
+    //             FREE DELIVERY: ${free_delivery}                                 
+    //            --------------  BILL  -------------------
+    //   `
+    //)
+
+
+    // VARIANTA II PRIN HTML- CSS
+    document.write(
+            `
+             <div style="
+                        background-image: linear-gradient(
+
+                            to top, #34686d, #327279, #2e7b85, 
+                            #288592, #208f9f, #198c9b, #108997, 
+                            #048693, #05767d, #086669, #0a5756,
+                            #0b4844
+                            );
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: space-around;
+                        align-items: center;
+                        margin:auto;
+                        color:white;
+                        font-size: 18px;
+                        font-family: Arial;
+                        width: 50vw;
+                        height: 50vh; 
+                        ">
+                --------------  BILL  -------------------                                                                                  
+                <br> 
+                1. "${food_1_name}" x ${food_1_quantity} = ${cost_1.toFixed(2)}  "${foodPriceUnits}"
+                <br> 
+                2.  "${food_2_name}" x ${food_2_quantity} = ${cost_2.toFixed(2)}  "${foodPriceUnits}" 
+                <br> 
+                3. "${food_3_name}" x ${food_3_quantity} = ${cost_3.toFixed(2)}  "${foodPriceUnits}"  
+                <br>
+                4. "${food_4_name}" x ${food_4_quantity} = ${cost_4.toFixed(2)}  "${foodPriceUnits}"
+                <br>                                                                                    
+                ----------------------------------------
+                <br>
+                 BILL: ${totalPrice.toFixed(2)} ${foodPriceUnits}  
+                 <br>                                                    
+                 FREE DELIVERY: ${free_delivery}
+                 <br>                                 
+                --------------  BILL  -------------------
+            
+            </div>`
+
+        )
+
+</script>
